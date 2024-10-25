@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6s66u4y021hv"]
+
+[ext_resource type="Script" path="res://scripts/fruta.gd" id="1_mmxje"]
+[ext_resource type="Texture2D" uid="uid://c6fpabxw1d270" path="res://assets/sprites/fruit.png" id="2_5iyhk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptgd8"]
+atlas = ExtResource("2_5iyhk")
+region = Rect2(33.6629, 49.2044, 12.5095, 15.3132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6j6b"]
+size = Vector2(10, 14)
+
+[node name="Fruta" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mmxje")
+
+[node name="sprite_fruta" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ptgd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r6j6b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
